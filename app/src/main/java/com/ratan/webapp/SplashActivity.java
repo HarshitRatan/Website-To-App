@@ -1,18 +1,14 @@
 package com.ratan.webapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Intent;
-
 import android.os.Bundle;
-
+import android.util.Log;
 import android.view.Window;
-
 import android.view.WindowManager;
 
-
 public class SplashActivity extends AppCompatActivity {
+    private static final String TAG = "SplashActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     finish();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "Splash thread interrupted", e);
                 }
                 super.run();
             }
